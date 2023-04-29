@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import css from "./Card.module.css";
 import { ReactComponent as Logo } from "../img/Logo.svg";
 import { ReactComponent as Circle } from "../img/Ellipse.svg";
 
 import background from "../img/background.png";
 import defaultAvatar from "../img/default_avatar.png";
-const Card = ({ user }) => {
+
+const Card = ({ user: { avatar, tweets, followers } }) => {
+  const [isSubscribed, setIsSubscribed] = useState(false);
+
+  const subscribe = () => {
+    setIsSubscribed((prevState) => !prevState);
+  };
   return (
     <div className={css.card}>
       <Logo className={css.logo} />
@@ -19,15 +25,10 @@ const Card = ({ user }) => {
       />
       <div className={css.line}></div>
 
-      <p>{user.avatar}</p>
+      <p>{avatar}</p>
       <div className={css.avatar_thumb}>
-        {user.avatar ? (
-          <img
-            className={css.avatar}
-            src={user.avatar}
-            alt="avatar"
-            width={62}
-          />
+        {avatar ? (
+          <img className={css.avatar} src={avatar} alt="avatar" width={62} />
         ) : (
           <img
             className={css.avatar}
@@ -43,11 +44,25 @@ const Card = ({ user }) => {
       </div>
 
       <div className={css.stats}>
-        <p className={css.tweets}>777 tweets</p>
-        <p className={css.followers}>100,500 Followers</p>
+        <p className={css.tweets}>{tweets} tweets</p>
+        <p className={css.followers}>{followers} Followers</p>
       </div>
 
-      <button className={`${css.button} ${css.followBtn}`}>Follow</button>
+      {isSubscribed ? (
+        <button
+          className={`${css.button} ${css.followingBtn}`}
+          onClick={subscribe}
+        >
+          Following
+        </button>
+      ) : (
+        <button
+          className={`${css.button} ${css.followBtn}`}
+          onClick={subscribe}
+        >
+          Follow
+        </button>
+      )}
     </div>
   );
 };
