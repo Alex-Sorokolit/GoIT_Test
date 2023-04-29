@@ -1,9 +1,10 @@
 import List from "./List";
+import Section from "./Section";
 
 export const App = () => {
   return (
-    <div>
+    <Section>
       <List />
-    </div>
+    </Section>
   );
 };

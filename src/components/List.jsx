@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getUsers } from "api/api";
 import Card from "./Card";
+import css from "./List.module.css";
 
 const List = () => {
   const [error, setError] = useState(null);
@@ -50,8 +51,7 @@ const List = () => {
   }
 
   return (
-    <>
-      <h1>List</h1>
+    <ul className={css.list}>
       {users.length > 0 &&
         users.map((user) => (
           <li key={user.id}>
@@ -60,7 +60,7 @@ const List = () => {
         ))}
       {error && <p>{error}</p>}
       {isLoading && <p>Loading...</p>}
-    </>
+    </ul>
   );
 };
 
