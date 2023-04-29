@@ -55,7 +55,7 @@ const List = () => {
       {users.length > 0 &&
         users.map((user) => (
           <li key={user.id}>
-            <Card />
+            <Card user={user} />
           </li>
         ))}
       {error && <p>{error}</p>}
