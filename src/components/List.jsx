@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import { getUsers } from "api/api";
 import Card from "./Card";
 import css from "./List.module.css";
+import { useLocalStorage } from "hooks/useLocalstorage";
 
 const List = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useLocalStorage("users");
 
   useEffect(() => {
     // Відхилення запиту
@@ -19,7 +20,6 @@ const List = () => {
       // Запит на бекенд
       try {
         const usersData = await getUsers(controller);
-        // console.log("usersData:", JSON.stringify(usersData, null, 2));
 
         // Перевірка чи є результати пошуку
         if (usersData.length === 0) {
@@ -38,19 +38,22 @@ const List = () => {
       }
     }
 
-    fetchData();
+    // Робим запит тільки якщо пустий localstorage
+    if (users.length === 0) {
+      fetchData();
+    }
 
     // Відхиляє запит при розмонтуванні елементу
     return () => {
       controller.abort();
     };
-  }, []);
+  }, [setUsers, users.length]);
 
   // додаємо підписку
   const subscribe = (userId) => {
     const updatedUsers = users.map((user) => {
       if (user.id === userId) {
-        return { ...user, followers: user.followers + 1 };
+        return { ...user, followers: user.followers + 1, isSubscribed: true };
       }
       return user;
     });
@@ -61,7 +64,7 @@ const List = () => {
   const unsubscribe = (userId) => {
     const updatedUsers = users.map((user) => {
       if (user.id === userId) {
-        return { ...user, followers: user.followers - 1 };
+        return { ...user, followers: user.followers - 1, isSubscribed: false };
       }
       return user;
     });

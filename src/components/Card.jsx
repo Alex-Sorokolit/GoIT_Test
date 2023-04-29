@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import css from "./Card.module.css";
 import { ReactComponent as Logo } from "../img/Logo.svg";
 import { ReactComponent as Circle } from "../img/Ellipse.svg";
@@ -7,15 +7,11 @@ import background from "../img/background.png";
 import defaultAvatar from "../img/default_avatar.png";
 
 const Card = ({
-  user: { id, avatar, tweets, followers },
+  user: { id, avatar, tweets, followers, isSubscribed },
   subscribe,
   unsubscribe,
 }) => {
-  const [isSubscribed, setIsSubscribed] = useState(false);
-
   const toggleButton = (userId) => {
-    setIsSubscribed((prevState) => !prevState);
-
     isSubscribed ? unsubscribe(userId) : subscribe(userId);
   };
   return (
