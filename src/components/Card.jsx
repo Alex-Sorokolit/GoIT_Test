@@ -6,11 +6,17 @@ import { ReactComponent as Circle } from "../img/Ellipse.svg";
 import background from "../img/background.png";
 import defaultAvatar from "../img/default_avatar.png";
 
-const Card = ({ user: { avatar, tweets, followers } }) => {
+const Card = ({
+  user: { id, avatar, tweets, followers },
+  subscribe,
+  unsubscribe,
+}) => {
   const [isSubscribed, setIsSubscribed] = useState(false);
 
-  const subscribe = () => {
+  const toggleButton = (userId) => {
     setIsSubscribed((prevState) => !prevState);
+
+    isSubscribed ? unsubscribe(userId) : subscribe(userId);
   };
   return (
     <div className={css.card}>
@@ -51,14 +57,14 @@ const Card = ({ user: { avatar, tweets, followers } }) => {
       {isSubscribed ? (
         <button
           className={`${css.button} ${css.followingBtn}`}
-          onClick={subscribe}
+          onClick={() => toggleButton(id)}
         >
           Following
         </button>
       ) : (
         <button
           className={`${css.button} ${css.followBtn}`}
-          onClick={subscribe}
+          onClick={() => toggleButton(id)}
         >
           Follow
         </button>

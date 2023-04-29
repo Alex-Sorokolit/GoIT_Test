@@ -46,6 +46,28 @@ const List = () => {
     };
   }, []);
 
+  // додаємо підписку
+  const subscribe = (userId) => {
+    const updatedUsers = users.map((user) => {
+      if (user.id === userId) {
+        return { ...user, followers: user.followers + 1 };
+      }
+      return user;
+    });
+    setUsers(updatedUsers);
+  };
+
+  // видаляємо підписку
+  const unsubscribe = (userId) => {
+    const updatedUsers = users.map((user) => {
+      if (user.id === userId) {
+        return { ...user, followers: user.followers - 1 };
+      }
+      return user;
+    });
+    setUsers(updatedUsers);
+  };
+
   if (!users) {
     return null;
   }
@@ -55,7 +77,7 @@ const List = () => {
       {users.length > 0 &&
         users.map((user) => (
           <li key={user.id}>
-            <Card user={user} />
+            <Card user={user} subscribe={subscribe} unsubscribe={unsubscribe} />
           </li>
         ))}
       {error && <p>{error}</p>}
