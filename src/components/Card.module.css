@@ -51,6 +51,8 @@
   .circle {
     border-radius: 50%;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.06);
+    image-rendering: optimizeQuality;
+    
   }
 
   .avatar_thumb {
@@ -87,24 +89,29 @@
   .tweets {
     margin-bottom: 16px;
   }
+.button{
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 14px 56px;
+  border-radius: 10.3108px;
+  max-width: 196px;
 
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  color: #373737;
+  text-transform: uppercase;
+  border-color: transparent;
+  box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25);}
+  
   .followBtn {
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 14px 56px;
-    border-radius: 10.3108px;
-    max-width: 196px;
+    background-color: #EBD8FF;
+  }
 
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 22px;
-    color: #373737;
-    text-transform: uppercase;
-    border-color: transparent;
-    background: #EBD8FF;
-    box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25);
+  .followingBtn{
+    background-color: #5CD3A8;
   }

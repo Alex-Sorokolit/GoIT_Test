@@ -25,7 +25,7 @@ const Card = () => {
         <p className={css.followers}>100,500 Followers</p>
       </div>
       
-        <button className={css.followBtn}>Follow</button>
+        <button className={`${css.button} ${css.followBtn}`}>Follow</button>
     </div>
   )
 }
