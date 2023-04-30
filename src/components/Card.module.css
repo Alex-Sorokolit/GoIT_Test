@@ -28,6 +28,12 @@
   top: 28px;
   left: 50%;
   transform: translateX(-50%);
+  opacity: 0.8;
+  transition: opacity 500ms linear;
+}
+
+.card:hover .background {
+  opacity: 1;
 }
 
 .line {
@@ -90,7 +96,24 @@
   text-align: center;
   padding: 26px;
 }
-
+.followersNumber {
+  margin-right: 6px;
+}
+.name {
+  font-size: 22px;
+  position: absolute;
+  top: 434px;
+  left: 20px;
+  max-width: 200px;
+  opacity: 0;
+  text-align: start;
+  transform-origin: 0 0;
+  transform: rotate(-90deg);
+  transition: opacity 500ms linear;
+}
+.card:hover .name {
+  opacity: 1;
+}
 .tweets {
   margin-bottom: 16px;
 }
@@ -112,9 +135,12 @@
   text-transform: uppercase;
   border-color: transparent;
   box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25);
+  transform: scale(1);
+  transition: transform 100ms linear;
 }
 .button:hover {
   cursor: pointer;
+  transform: scale(1.02);
 }
 .followBtn {
   background-color: #ebd8ff;

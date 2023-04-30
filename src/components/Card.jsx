@@ -7,13 +7,10 @@ import background from "../img/background.png";
 import defaultAvatar from "../img/default_avatar.png";
 
 const Card = ({
-  user: { id, avatar, tweets, followers, isSubscribed },
+  user: { id, user, avatar, tweets, followers, isSubscribed },
   subscribe,
   unsubscribe,
 }) => {
-  const toggleButton = (userId) => {
-    isSubscribed ? unsubscribe(userId) : subscribe(userId);
-  };
   return (
     <div className={css.card}>
       <Logo className={css.logo} />
@@ -46,6 +43,7 @@ const Card = ({
       </div>
 
       <div className={css.stats}>
+        <p className={css.name}>{user}</p>
         <p className={css.tweets}>{tweets} tweets</p>
         <p className={css.followers}>{followers} Followers</p>
       </div>
@@ -53,14 +51,14 @@ const Card = ({
       {isSubscribed ? (
         <button
           className={`${css.button} ${css.followingBtn}`}
-          onClick={() => toggleButton(id)}
+          onClick={() => unsubscribe(id)}
         >
           Following
         </button>
       ) : (
         <button
           className={`${css.button} ${css.followBtn}`}
-          onClick={() => toggleButton(id)}
+          onClick={() => subscribe(id)}
         >
           Follow
         </button>
