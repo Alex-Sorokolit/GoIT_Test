@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/GoIT_Test/static/css/main.59f4cdfb.css",
-    "main.js": "/GoIT_Test/static/js/main.479e64e0.js",
+    "main.css": "/GoIT_Test/static/css/main.b58b9fb2.css",
+    "main.js": "/GoIT_Test/static/js/main.b338851f.js",
     "static/media/background.png": "/GoIT_Test/static/media/background.fe585fd7be2c0cd468e0.png",
     "static/media/default_avatar.png": "/GoIT_Test/static/media/default_avatar.5d8b3444c6344a421db8.png",
     "static/media/Logo.svg": "/GoIT_Test/static/media/Logo.e917114d7945c04c85a8946a331d28b6.svg",
     "static/media/Ellipse.svg": "/GoIT_Test/static/media/Ellipse.0ea6285e86bf8de222c2191d50b64117.svg",
     "index.html": "/GoIT_Test/index.html",
-    "main.59f4cdfb.css.map": "/GoIT_Test/static/css/main.59f4cdfb.css.map",
-    "main.479e64e0.js.map": "/GoIT_Test/static/js/main.479e64e0.js.map"
+    "main.b58b9fb2.css.map": "/GoIT_Test/static/css/main.b58b9fb2.css.map",
+    "main.b338851f.js.map": "/GoIT_Test/static/js/main.b338851f.js.map"
   },
   "entrypoints": [
-    "static/css/main.59f4cdfb.css",
-    "static/js/main.479e64e0.js"
+    "static/css/main.b58b9fb2.css",
+    "static/js/main.b338851f.js"
   ]
 }
