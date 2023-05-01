@@ -38,12 +38,16 @@ const List = () => {
       }
     }
 
-    fetchData();
+    if (users.length === 0) {
+      fetchData();
+    }
+
+    // fetchData();
 
     // Відхиляє запит при розмонтуванні елементу
-    // return () => {
-    //   controller.abort();
-    // };
+    return () => {
+      controller.abort();
+    };
   }, [setUsers, users.length]);
 
   // додаємо підписку
